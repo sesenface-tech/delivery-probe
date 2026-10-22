@@ -71,3 +71,18 @@ The in-memory demo receiver illustrates deduplication/version guards, not durabl
 Existing projects include [webhook-replay](https://pypi.org/project/webhook-replay/), [Unhook](https://unhook.sh/), and [HookChaos](https://github.com/umutkeskin1001-cell/HookChaos). Delivery Probe makes no uniqueness claim: its small scope is dependency-free scripted scenarios, optional receiver-state assertions and an isolated positive/negative demo. No code was copied from these projects.
 
 See [CONTRIBUTING.md](CONTRIBUTING.md), [SECURITY.md](SECURITY.md), [CHANGELOG.md](CHANGELOG.md), and the [MIT license](LICENSE).
+
+## Generated regression-test integration
+
+[Webhook Regression Kit](https://github.com/sesenface-tech/webhook-regression-kit)
+turns local event fixtures and explicit expected state into a Python unittest.
+Run the committed, reviewed example with:
+
+```sh
+python -m examples.regression.demo
+```
+
+It verifies that the generated duplicate test fails on a deliberately naive
+receiver and passes on a guarded receiver, using actual loopback HTTP and fresh
+state. See [the example](examples/regression/README.md). This is self-integration
+using synthetic fixtures, not evidence of independent users or production usage.
